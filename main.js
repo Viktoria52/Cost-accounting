@@ -1,4 +1,3 @@
-
 let allCosts = [];
 try {
     allCosts = JSON.parse(localStorage.getItem('Cost'));
@@ -30,7 +29,7 @@ window.onload = async function init() {
 onClickButton = async () => {
     // const postConnect = new Rectangle(valueInput1,  valueInput2, allCosts);
     // postConnect.patch()
-    if (valueInput1, valueInput2) {
+    if (valueInput1 === String && valueInput2 === Number) {
         const response = await fetch('http://localhost:5000/createCost',
             {
                 method: 'POST',
@@ -168,6 +167,7 @@ render = () => {
 
         const text = document.createElement('p')  //cost
         text.innerText = cost.text;
+        text.className = 'cost'
         container.appendChild(text);
 
         const data = document.createElement('p')
@@ -175,14 +175,20 @@ render = () => {
         data.innerText = cost.date
         container.appendChild(data)
 
+        const containerMoney = document.createElement('div')
+        containerMoney.className = 'containerMoney'
+        container.appendChild(containerMoney)
+
         const textMoney = document.createElement('p')
         const textP = document.createElement('p')
         textP.innerText = 'p.'
         textMoney.innerText = cost.totalMoney
+        textMoney.type = Number
         textMoney.className = 'textMoney'
-        container.appendChild(textMoney);
-        container.appendChild(textP)
-
+        container.append(textMoney);
+        container.append(textP)
+        containerMoney.append(textMoney)
+        containerMoney.append(textMoney)
         const newInput1 = document.createElement('input')  // input of pencil
         const newInput2 = document.createElement('input')  // input of pencil
         newInput1.type = 'text'
@@ -195,10 +201,11 @@ render = () => {
 
         let buttonEdit = document.createElement('img')
         buttonEdit.src = 'assets/edit.svg'
-        buttonEdit.className = 'mini-button'
+        buttonEdit.className = 'pencil'
         buttonEdit.onclick = function (e) {
-            newInput1.value = text.innerText
+            newInput1.value = text.innerText;
             newInput2.value = textMoney.innerText
+            containerMoney.classList.add('noRelative')
             buttonEdit.classList.add('hide')
             buttonDone.classList.remove('hide')
             text.replaceWith(newInput1)
@@ -215,6 +222,8 @@ render = () => {
         }
 
         let buttonDone = document.createElement('img')
+        containerMoney.classList.remove('noRelative')
+
         buttonDone.src = 'assets/okay.svg'
         buttonDone.classList = ('mini-button', 'hide')
         buttonDone.onclick = function (e) {
@@ -224,9 +233,9 @@ render = () => {
                 valueEditInput1 = text.innerText
             }
             if (!valueEditInput2) {
-                valueEditInput2 = textMoney.innerText
+                valueEditInput2 = +textMoney.innerText
             }
-            updateInputs(valueEditInput1, valueEditInput2, cost._id, index)
+            updateInputs(valueEditInput1, +valueEditInput2, cost._id, index)
             valueEditInput1 = ''
             valueEditInput2 = ''
         }
