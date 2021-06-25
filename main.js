@@ -1,3 +1,4 @@
+
 let allCosts = [];
 try {
     allCosts = JSON.parse(localStorage.getItem('Cost'));
@@ -54,9 +55,7 @@ onClickButton = async () => {
         valueInput2 = '';
         input1.value = '';
         input2.value = '';
-
         render()
-
     }
 }
 
@@ -148,7 +147,6 @@ render = () => {
     content.className = 'costs'
     contentAll.append(content)
 
-
     // const content = document.querySelector('.costs');
     // const containerSum = document.querySelector('.sum');
     const resultSum = document.createElement('p')
@@ -163,6 +161,7 @@ render = () => {
         const container = document.createElement('div')
         container.id = `cost - ${index}`;
         container.className = 'task-container'
+
         const numbering = document.createElement('p')
         numbering.innerText = index + 1 + ')';
         container.appendChild(numbering);
