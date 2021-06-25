@@ -22,15 +22,15 @@
 //
 // }
 //
-export class Rectangle {
+class Rectangle {
     constructor(valueInput1, valueInput2, allCosts) {
         this.valueInput1 = valueInput1
         this.valueInput2 = valueInput2
         this.allCosts = allCosts
     }
 
-    patch() {
-      const response = fetch('http://localhost:5000/createCost',
+    patch() { if (this.valueInput1, this.valueInput2) {
+        const response = fetch('http://localhost:5000/createCost',
             {
                 method: 'POST',
                 headers: {
@@ -40,14 +40,17 @@ export class Rectangle {
                 },
                 body: JSON.stringify({
                     text: this.valueInput1,
-                    totalMoney: this.valueInput2
+                    totalMoney: this.valueInput2,
+                    date: createDate()
                 })
             },
         )
         let result = response.json()
-        this.allCosts.push(result);
         if (response.status === 200) {
-            this.allCosts.push(result);
+            allCosts.push(result);
         }
     }
+    }
 }
+
+export {Rectangle}
