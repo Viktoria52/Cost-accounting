@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="cost.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="main">
+    <h1 class="main--h1"> Учет моих расходов</h1>
+    <div class="main--inputs">
+        <div class="main--where">
+            <p> Куда было потрачено: </p>
+            <input class="input-where" placeholder="Куда было потрачено" type="text">
+        </div>
+        <div class="main--how">
+            <p> Сколько было потрачено: </p>
+            <input class='input-how' placeholder="Сколько было потрачено" type="text">
+        </div>
+        <button class="main--add"> Добавить</button>
+    </div>
+<!--    <div class="sum"></div>-->
+    <div class="wrapper__content">
+        <div class="sum-and-costs">
+            <div class="costs"></div>
+            <div class="sum"></div>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+<script type="module" src="apiService.js"></script>
+</body>
+</html>

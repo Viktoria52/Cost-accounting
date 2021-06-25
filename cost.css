@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #a5c8ec;
+}
+
+.main {
+    padding: 16px;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.main--h1 {
+    text-align: center;
+}
+
+.main--inputs {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+
+}
+
+.main--where input {
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    width: 262px;
+}
+
+.main--how input {
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    width: 200px;
+}
+
+.main--how {
+    margin-left: 10px;
+}
+
+.main--add {
+    background-color: #47aa64;
+    height: 35px;
+    width: 107px;
+    margin-top: 18px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+
+}
+
+.mini-button {
+    width: 30px;
+    height: 30px;
+}
+
+.task-container {
+    display: flex;
+    /*border: 1px solid black;*/
+    /*width: 50%;*/
+    padding: 10px;
+    /*justify-content: space-between;*/
+    margin-top: 5px;
+
+}
+
+/*.costs {*/
+/*    display: flex;*/
+/*    !*border: 1px red solid;*!*/
+/*    flex-wrap: wrap;*/
+/*    width: 700px;*/
+/*    font-size: 18px;*/
+
+/*    justify-content: center;*/
+/*}*/
+/*.sum-and-costs{*/
+/*    display: flex;*/
+/*    !*border: 1px red solid;*!*/
+/*    flex-wrap: wrap;*/
+/*    width: 700px;*/
+/*    font-size: 18px;*/
+
+/*    justify-content: center;}*/
+.hide {
+    display: none;
+}
+
+.newInputs {
+    outline: none;
+    /*border: none;*/
+}
+
+.sum-and-costs {
+    font-size: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*margin: 0 auto;*/
+    /*display: flex;*/
+    /*width: 700px;*/
+    margin-top: 40px;
+}
+
+.container-sum {
+    font-size: 18px;
+}
+
+/*.sum{*/
+/*    !*margin-top: -22px;*!*/
+/*    font-size: 18px;*/
+/*    !*margin-top: 16px;*!*/
+/*    !*font-size: 18px;*!*/
+/*    text-align: center;*/
+/*    margin-left: 376px;*/
+/*}*/
+
+.textMoney {
+    margin-left: 50px;
+}
+
+.mini-button {
+    margin-left: auto;
+}
+
+.data {
+    margin-left: 45px;
+}
+
+.sum {
+    margin-left: 511px;
+}
