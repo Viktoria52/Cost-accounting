@@ -29,32 +29,40 @@ window.onload = async function init() {
 onClickButton = async () => {
     // const postConnect = new Rectangle(valueInput1,  valueInput2, allCosts);
     // postConnect.patch()
-    if (valueInput1 === String && valueInput2 === Number) {
-        const response = await fetch('http://localhost:5000/createCost',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                body: JSON.stringify({
-                    text: valueInput1,
-                    totalMoney: valueInput2,
-                    date: createDate()
-                })
-            },
-        )
-        let result = await response.json()
-        if (response.status === 200) {
-            allCosts.push(result);
+    // console.log(typeof valueInput1 === "string")
+    // console.log(typeof valueInput2)
+    if (valueInput1 && valueInput2) {
+        if(typeof valueInput1=== 'string'){
+            if (typeof valueInput2 === 'number'){
+                const response = await fetch('http://localhost:5000/createCost',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8',
+                            'Accept': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        },
+                        body: JSON.stringify({
+                            text: valueInput1,
+                            totalMoney: valueInput2,
+                            date: createDate()
+                        })
+                    },
+                )
+                let result = await response.json()
+                if (response.status === 200) {
+                    allCosts.push(result);
+                }
+                localStorage.setItem('costs', JSON.stringify(allCosts))
+                valueInput1 = '';
+                valueInput2 = '';
+                input1.value = '';
+                input2.value = '';
+                render()
+            }
+
         }
-        localStorage.setItem('costs', JSON.stringify(allCosts))
-        valueInput1 = '';
-        valueInput2 = '';
-        input1.value = '';
-        input2.value = '';
-        render()
+
     }
 }
 
@@ -88,7 +96,9 @@ updateValue1 = (e) => {
     valueInput1 = e.target.value;
 }
 updateValue2 = (e) => {
-    valueInput2 = e.target.value;
+    valueInput2 = +e.target.value;
+    valueInput2 = Number(valueInput2)
+
 }
 changeNewInput1 = (e) => {
     valueEditInput1 = e.target.value
